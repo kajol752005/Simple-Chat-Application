@@ -70,7 +70,9 @@ def handle_client(conn, addr):
                     if not text:
                         continue
                     timestamp = datetime.datetime.now().strftime("%H:%M:%S")
-                    broadcast(f"[{timestamp}] {username}: {text}")
+                    msg = f"[{timestamp}] {username}: {text}"
+                    print(msg)         
+                    broadcast(msg)
                 else:
                     conn.sendall(b"SERVER ERROR: Unknown command\n")
     except:
